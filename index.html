@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buildstorm Arena</title>
+    <script>
+      if (location.protocol === 'file:' && /\/index\.html$/i.test(location.pathname)) {
+        location.replace(location.href.replace(/index\.html$/i, 'play.html'));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game"></canvas>
+      <div id="hud" class="hidden">
+        <div class="top-left stack">
+          <div class="brand">Buildstorm Arena</div>
+          <div class="bar-frame health-frame">
+            <div id="healthBar" class="bar health"></div>
+            <span id="healthText">100</span>
+          </div>
+          <div class="bar-frame shield-frame">
+            <div id="shieldBar" class="bar shield"></div>
+            <span id="shieldText">50</span>
+          </div>
+          <div class="bar-frame stamina-frame">
+            <div id="staminaBar" class="bar stamina"></div>
+            <span id="staminaText">100</span>
+          </div>
+        </div>
+        <div class="top-center stack center">
+          <div id="stormStatus" class="pill">Storm 100m</div>
+          <div id="aliveStatus" class="pill">Alive 16</div>
+          <div id="controlHint" class="pill hint-pill">Click the arena for mouse look</div>
+          <button id="pauseButton" class="icon-button" aria-label="Pause">II</button>
+        </div>
+        <div class="top-right panel">
+          <label class="quality">
+            <span>Quality</span>
+            <select id="qualitySelect">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <canvas id="minimap" width="160" height="160"></canvas>
+        </div>
+        <div id="crosshair">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="hitMarker"></div>
+        <div id="damageFlash"></div>
+        <div id="stormVeil"></div>
+        <div id="matchBanner" class="match-banner hidden">
+          <strong id="matchBannerTitle">Deploying</strong>
+          <span id="matchBannerDetail">Scout the island</span>
+        </div>
+        <div class="bottom-left panel compact">
+          <div id="materials">Materials 120</div>
+          <div id="buildStatus">Combat</div>
+          <div id="nearbyLoot">Clear</div>
+        </div>
+        <div class="bottom-center" id="inventory"></div>
+        <div class="bottom-right panel compact">
+          <div id="weaponName">Rifle</div>
+          <div id="ammoStatus">30 / 90</div>
+          <div class="reload-track"><div id="reloadBar"></div></div>
+        </div>
+        <div id="toast"></div>
+      </div>
+      <div id="menu" class="menu">
+        <div class="menu-copy">
+          <h1>Buildstorm Arena</h1>
+          <p>Original 3D battle arena prototype</p>
+          <div class="control-deck" aria-label="Controls">
+            <span>WASD</span>
+            <span>Mouse</span>
+            <span>Click</span>
+            <span>Q/B</span>
+            <span>E/F</span>
+            <span>R</span>
+            <span>Shift</span>
+            <span>Space</span>
+            <span>Wheel</span>
+          </div>
+          <button id="playButton">Deploy</button>
+        </div>
+      </div>
+      <div id="result" class="menu hidden">
+        <div class="menu-copy">
+          <h1 id="resultTitle">Victory</h1>
+          <p id="resultStats">You survived the storm.</p>
+          <button id="restartButton">Redeploy</button>
+        </div>
+      </div>
+      <div id="pause" class="menu pause-menu hidden">
+        <div class="menu-copy">
+          <h1>Paused</h1>
+          <p id="pauseStats">Match held.</p>
+          <div class="menu-actions">
+            <button id="resumeButton">Resume</button>
+            <button id="pauseRestartButton">Redeploy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

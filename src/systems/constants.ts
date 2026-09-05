@@ -1,0 +1,14 @@
+export const ARENA_RADIUS = 112;
+export const PLAYER_RADIUS = 0.62;
+export const PLAYER_HEIGHT = 2.25;
+export const BOT_COUNT = 14;
+export const GRID_SIZE = 4;
+export const BUILD_COST = 10;
+export const GRAVITY = -32;
+export const JUMP_FORCE = 11.5;
+export const WALK_SPEED = 10;
+export const SPRINT_SPEED = 15;
+export const BOT_SPEED = 7.8;
+export const STORM_START_RADIUS = 104;
+export const STORM_DAMAGE_PER_SECOND = 8;
+export const MAX_DELTA_SECONDS = 1 / 30;
